@@ -3,7 +3,8 @@ import webpack, { RuleSetRule, WebpackPluginInstance } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const ROOT_DIR=path.resolve(__dirname, '../');
+export const ROOT_DIR=path.resolve(__dirname, '../');
+export const ROOT_DIST=`${ROOT_DIR}/dist`;
 
 const loadersWebpack: Array<(RuleSetRule|"...")>=[
     {
@@ -52,12 +53,12 @@ export const configCommonWebpack=(env: any, arg: any): webpack.Configuration=>{
     return {
         entry: `${ROOT_DIR}/index.ts`,
         output: {
-            path: `${ROOT_DIR}/dist`,//genera la ruta
+            path: ROOT_DIST,//genera la ruta
             filename: 'index.[contenthash].js',//nombre del archivo de salida
             clean: true,//elimina lo que se tenga en la carpeta dist y lo crea nuevamente
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.js'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx'],
         },
         module: {
             rules: loadersWebpack

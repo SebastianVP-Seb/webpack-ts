@@ -1,4 +1,5 @@
 import { countVowels } from './src/utils';
+import './src/index.scss';
 
 interface IPerson {
     name: string;

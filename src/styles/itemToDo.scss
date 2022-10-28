@@ -1,0 +1,13 @@
+.container_todo {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.is_done {
+    background-color: aquamarine;
+    transition: all .5s;
+}
+
+.is_done:hover {
+    background-color: black;
+}

@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export const ROOT_DIR=path.resolve(__dirname, '../');
+const SRC_DIR=`${ROOT_DIR}/src`;
 export const ROOT_DIST=`${ROOT_DIR}/dist`;
 
 const loadersWebpack: Array<(RuleSetRule|"...")>=[
@@ -59,6 +60,12 @@ export const configCommonWebpack=(env: any, arg: any): webpack.Configuration=>{
         },
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx'],
+            alias: {
+                '@components': `${SRC_DIR}/components`,
+                '@actions': `${SRC_DIR}/actions`,
+                '@customHooks': `${SRC_DIR}/customHooks`,
+                '@utils': `${SRC_DIR}/utils`,
+            }
         },
         module: {
             rules: loadersWebpack

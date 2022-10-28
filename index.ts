@@ -1,1 +1,1 @@
-import './src/App'; //Punto de entrada
+import './src'; //Punto de entrada
